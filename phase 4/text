@@ -1,0 +1,24 @@
+ import { MongoClient,ObjectId } from 'mongodb';
+ const uri =  'mongodb://127.0.0.1:27017'
+ const client = new MongoClient(uri)
+
+ export async function insert() {
+
+    try{
+        await client.connect()
+      const db=client.db('ecommerce')
+        const collection = db.collection('users')
+        const user = {
+            name:'Rashid Genius',
+            email:'rashidgenius@gmail.com',
+            age:80
+        }
+    const result = await collection.insertOne(user);
+        console.log(user);
+        return result
+        
+    }
+    catch(err){
+        console.log('error found');
+    }
+}
