@@ -8,14 +8,19 @@
 <body>
     <div id="form_container">
         <h1>REGISTER</h1>
-        <form action="/register" method="get">
+        <form action="/register1" method="post">
                 <div class="inner_container">
                 <label for="username">username</label>
                 <input name="username" id="name" type="text" placeholder="Enter your name" width="30px" height="15px">
+                    <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="Enter your email" width="30px" height="15px">
             </div>
                 <div class="reg_pass">
+                        <label for="password">Password</label>
                     <input name="pass" placeholder="Enter your Password" type="password">
+                        <!-- rePass -->
+                        <label for="password">Re-Password</label>
+                    <input name="pass2" placeholder="Re-Enter your Password" type="password">
                 </div>
                 <button class="btn">REGISTER</button>
             </form>

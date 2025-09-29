@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main condainer">
+    <h1>ADMIN PANEL</h1>
+    
+    <div class="table_container">
+        <table border="2">
+            <tr>
+                <th>username</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Acction</th>
+                
+                
+                
+            </tr>
+            <tr>
+                <% findAll.forEach((userr)=>{%>
+                    <tr>
+                        <td><%= userr.name %></td>
+                        <td><%= userr.email %></td>
+                        <td><%=userr.status%></td>
+                        <!-- <td><%=userr._id%></td>                         -->
+                        <td>
+                            <button>
+
+                                <% if (userr.status ==="active" ) { %>
+                                    
+                                    
+                                          <a href="/adminview/<%= userr._id  %>">
+                                                Disable  </a>
+
+                               <% }
+                               else{%>
+                                <a href="/adminview/<%= userr._id  %>">
+                             Enable
+                            </a>
+
+
+                              <% }%>
+                                
+
+
+                      
+                        </button>
+                        <!-- <button type="submit" id="disable">Disable</button></td> -->
+                    </tr> 
+                    <%})%>
+                </tr>
+            </table>
+      <button> <a href="/logout">LOGOUT!</a></button> 
+    </div>
+    </div>
+    
+</body>
+</html>
