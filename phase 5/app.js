@@ -10,7 +10,7 @@ app.use(urlencoded ({extended:true}))
  app.set('view engine', 'ejs')
  app.use(session({
     
-    secret : "IMBATMAN",
+    secret : "IaMBATMAN",
     resave: false,
     saveUninitialized: false
  }))
