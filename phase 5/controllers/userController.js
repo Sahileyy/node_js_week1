@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import { ObjectId } from 'mongodb';
 
 export const registerUser = (req, res) => {
-    res.render("register")
+    res.render("register",{message:null})
 }
 
 export const loginUser = (req, res) => {
@@ -32,9 +32,14 @@ export const newUser = async (req, res) => {
 
         const hash = await bcrypt.hash(pass, 10)
         const email_check = await userCollection.findOne({ email: email })
-        const pass_check = pass === pass2
+        
+        // const pass_check = pass === pass2
+        if (pass !== pass2) {
+          return res.render("register",{message:"invalid credentials"})           
+        }
 
-        if (!email_check && pass_check) {
+
+        if (!email_check ) {
             const user_data = await userCollection.insertOne({
                 name: username,
                 password: hash,
